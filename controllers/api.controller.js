@@ -35,7 +35,8 @@ async function addTradingPair(req, res) {
     try {
         const {name, nameOnBinance,
             //solanaAmmAddress
-            tokenAddress
+            tokenAddress,
+            minProfit
         } = req.body;
 
         const pair = await mongoLib.findOneAndUpdate(pairModel, {name: name}, {
@@ -43,6 +44,7 @@ async function addTradingPair(req, res) {
             nameOnBinance: nameOnBinance,
             tokenAddress: tokenAddress,
            // solanaAmmAddress: solanaAmmAddress,
+            minProfit: minProfit,
             isWebSocketInitialized: false
         }, {upsert: true});
 
