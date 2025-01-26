@@ -10,7 +10,7 @@ async function getLivePrice(req, res) {
         if (price) {
             res.json({price});
         } else {
-            res.status(500).json({error: 'Failed to fetch price'});
+            res.status(500).json({error: 'Failed to fetch price.Did u give binancePairName?'});
         }
     } catch (err) {
         res.status(500).json({error: err.message});
@@ -33,12 +33,16 @@ async function getArbitrageOpportunities(req, res) {
 
 async function addTradingPair(req, res) {
     try {
-        const {name, nameOnBinance, solanaAmmAddress} = req.body;
+        const {name, nameOnBinance,
+            //solanaAmmAddress
+            tokenAddress
+        } = req.body;
 
         const pair = await mongoLib.findOneAndUpdate(pairModel, {name: name}, {
             name: name,
             nameOnBinance: nameOnBinance,
-            solanaAmmAddress: solanaAmmAddress,
+            tokenAddress: tokenAddress,
+           // solanaAmmAddress: solanaAmmAddress,
             isWebSocketInitialized: false
         }, {upsert: true});
 

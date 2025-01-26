@@ -16,7 +16,6 @@ const pairModel = require('../models/pair.model');
         for (const pair of pairs) {
             await binanceLib.createWebSocketConnection(pair);
             await mongoLib.findOneAndUpdate(pairModel, {nameOnBinance: pair.nameOnBinance}, {isWebSocketInitialized: true});
-
             console.log(`WebSocket initialized for ${pair.name}`);
         }
 
