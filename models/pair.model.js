@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const pairSchema = new mongoose.Schema({
     name: { type: String, unique: true, required: true },
     nameOnBinance: { type: String, required: true },
-    profitThreshold: { type: Number, default: 0.5 },
     solanaAmmAddress: { type: String, required: true },
     isWebSocketInitialized: { type: Boolean, default: false },
 });
