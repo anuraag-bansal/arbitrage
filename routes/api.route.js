@@ -9,7 +9,7 @@ router.get('/prices/:pair', apiController.getLivePrice);
 router.get('/opportunities', apiController.getArbitrageOpportunities);
 
 // Add a new trading pair
-router.post('/pairs', apiController.addTradingPair);
+router.post('/add/pair', apiController.addTradingPair);
 
 module.exports = router;
 

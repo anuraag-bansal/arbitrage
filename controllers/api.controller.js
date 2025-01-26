@@ -33,7 +33,7 @@ async function getArbitrageOpportunities(req, res) {
 
 async function addTradingPair(req, res) {
     try {
-        const {name, nameOnBinance, profitThreshold, solanaAmmAddress} = req.body;
+        const {name, nameOnBinance, solanaAmmAddress} = req.body;
 
         const pair = await mongoLib.findOneAndUpdate(pairModel, {name: name}, {
             name: name,
