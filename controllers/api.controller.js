@@ -6,7 +6,7 @@ const pairModel = require('../models/pair.model');
 async function getLivePrice(req, res) {
     try {
         const {pair} = req.params;
-        const price = await mongoLib.findOne(binancePriceModel, {pair: pair});
+        const price = await mongoLib.findOne(binancePriceModel, {pair: pair}, {sort: {timestamp: -1}});
         if (price) {
             res.json({price});
         } else {
