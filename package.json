@@ -1,0 +1,19 @@
+{
+  "name": "crypto-arbitrage-monitor",
+  "version": "1.0.0",
+  "description": "Real-time arbitrage monitoring system using MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@raydium-io/raydium-sdk": "^1.3.1-beta.58",
+    "@solana/web3.js": "^1.98.0",
+    "axios": "^1.4.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^7.0.2",
+    "ws": "^8.13.0"
+  }
+}
