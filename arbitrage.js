@@ -9,7 +9,7 @@ const PORT = 3000;
 
 ;(async () => {
     try {
-        await connectzToMongo();
+        await connectToMongo();
         app.use(express.json());
         app.use('/api', apiRoutes);
 
