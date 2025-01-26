@@ -1,3 +1,4 @@
+require("dotenv").config({path: ".env"})
 const express = require('express');
 const {connectToMongo} = require('./lib/mongo.lib');
 const apiRoutes = require('./routes/api.route');
