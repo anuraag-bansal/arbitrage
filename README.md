@@ -1,7 +1,7 @@
 # Crypto Arbitrage Monitor
 
 This is a real-time arbitrage monitoring system that tracks price differences between Binance (CEX) and Solana DEX
-markets for USDC trading pairs. The system detects arbitrage opportunities and calculates potential profits after
+markets(raydium) for USDC trading pairs. The system detects arbitrage opportunities and calculates potential profits after
 considering the fees from both exchanges.
 
 ## Features
@@ -12,6 +12,7 @@ considering the fees from both exchanges.
 - **WebSocket Integration**: Uses WebSockets for real-time price updates to minimize latency.
 - **Dynamic Trading Pair Addition**: Allows for dynamic addition of new trading pairs without restarting the service.
 - **Database Integration**: Stores historical price data and flagged arbitrage opportunities in MongoDB.
+- **Raydium Integration**: Uses Raydium AMM to get the latest prices for the trading pairs.
 
 ## Prerequisites
 
