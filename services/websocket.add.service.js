@@ -3,7 +3,7 @@ const binanceLib = require('../lib/binance.lib');
 const pairModel = require('../models/pair.model');
 
 ;(async () => {
-
+    try {
     await mongoLib.connectToMongo();
     while (true) {
         const pairs = await mongoLib.findByQuery(pairModel, {isWebSocketInitialized: false});
@@ -20,5 +20,8 @@ const pairModel = require('../models/pair.model');
         }
 
         await new Promise(resolve => setTimeout(resolve, 5000));
+    }
+    } catch (err) {
+        console.error('Error initializing WebSocket:', err.message);
     }
 })()
