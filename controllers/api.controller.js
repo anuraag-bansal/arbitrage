@@ -5,12 +5,14 @@ const pairModel = require('../models/pair.model');
 
 async function getLivePrice(req, res) {
     try {
-        const {pair} = req.params;
-        const price = await mongoLib.findOne(binancePriceModel, {pair: pair}, {sort: {timestamp: -1}});
+        const {nameOnBinance} = req.params;
+        const price = await mongoLib.findOneByQueryWithSelectWithSort(binancePriceModel, {pair: nameOnBinance}, {
+            price: 1, _id: 0
+        }, {timestamp: -1});
         if (price) {
-            res.json({price});
+            res.json({price: price.price});
         } else {
-            res.status(500).json({error: 'Failed to fetch price.Did u give binancePairName?'});
+            res.status(404).json({error: 'Failed to fetch price. Give binance pair name for price'});
         }
     } catch (err) {
         res.status(500).json({error: err.message});
@@ -33,22 +35,21 @@ async function getArbitrageOpportunities(req, res) {
 
 async function addTradingPair(req, res) {
     try {
-        const {name, nameOnBinance,
-            //solanaAmmAddress
-            tokenAddress,
-            minProfit
+        const {
+            name, nameOnBinance, solanaAmmAddress, minProfit
         } = req.body;
 
-        const pair = await mongoLib.findOneAndUpdate(pairModel, {name: name}, {
+       const updatedDoc =  await mongoLib.findOneAndUpdate(pairModel, {name: name}, {
             name: name,
             nameOnBinance: nameOnBinance,
-            tokenAddress: tokenAddress,
-           // solanaAmmAddress: solanaAmmAddress,
+            solanaAmmAddress: solanaAmmAddress,
             minProfit: minProfit,
             isWebSocketInitialized: false
-        }, {upsert: true});
+        }, {upsert: true,returnDocument: 'after'});
 
-        res.json({message: 'Trading pair added successfully'});
+        res.json({
+            message: 'Trading pair added successfully', pair: updatedDoc._doc.name
+        });
     } catch (err) {
         res.status(500).json({error: err.message});
     }

@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 const pairSchema = new mongoose.Schema({
-    name: { type: String, unique: true, required: true },
-    nameOnBinance: { type: String, required: true },
-    //solanaAmmAddress: { type: String, required: true },
-    tokenAddress: { type: String, required: true },
-    isWebSocketInitialized: { type: Boolean, default: false },
+    name: {type: String, unique: true, required: true},
+    nameOnBinance: {type: String, required: true},
+    solanaAmmAddress: {type: String, required: true},
+    isWebSocketInitialized: {type: Boolean, default: false},
+    minProfit: {type: Number, required: true}
 });
 
 module.exports = mongoose.connection

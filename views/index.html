@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+    <title>Nida is butterscotch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        input[type="submit"] {
+            background: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<h1>CRYPTO ARBITRAGE MONITOR</h1>
+<ul>
+    <li>
+        <strong>Supported Pairs:</strong> BTC/USDC,ETH/USDC,SOL/USDC
+    </li>
+</ul>
+
+<div class="form-container">
+    <h3>Add a trading pair</h3>
+    <form action="/api/add/pair" method="post">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" />
+
+        <label for="nameOnBinance">Binance Name</label>
+        <input type="text" id="nameOnBinance" name="nameOnBinance" />
+
+        <label for="solanaAmmAddress">Solana Amm Address</label>
+        <input type="text" id="solanaAmmAddress" name="solanaAmmAddress" />
+
+        <label for="minProfit">Min Profit</label>
+        <input type="number" id="minProfit" name="minProfit" />
+
+        <input type="submit" value="Add Trading Pair" />
+    </form>
+</div>
+
+<div class="form-container">
+    <h3>get arbitrage opportunities</h3>
+    <ul>
+        <li>
+            <a href="api/opportunities" target="_blank"
+            >api/opportunities</a
+            >
+        </li>
+    </ul>
+</div>
+<div class="form-container">
+    <h3>get live price</h3>
+    <ul>
+        <li>
+            <a href="api/prices/:pair" target="_blank"
+            >api/prices/:pair</a
+            >
+        </li>
+    </ul>
+</div>
+</body>
+</html>
