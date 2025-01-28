@@ -87,6 +87,7 @@ Body : {
 name:"btcusdc
 nameOnBinace:"btcusdc",
 solanaAmmAddress:"your_solana_amm_address",
+minProfit:100
 }
 ````````
   
