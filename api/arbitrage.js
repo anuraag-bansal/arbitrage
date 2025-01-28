@@ -1,8 +1,10 @@
 require("dotenv").config({path: ".env"})
 const express = require('express');
-const {connectToMongo} = require('./lib/mongo.lib');
-const {connectToCluster} = require('./lib/solana.lib');
-const apiRoutes = require('./routes/api.route');
+
+const {connectToMongo} = require('../lib/mongo.lib');
+const {connectToCluster} = require('../lib/solana.lib');
+
+const arbitrageRoutes = require('./routes/arbitrage.route');
 
 const app = express();
 const PORT = 3000;
@@ -17,14 +19,13 @@ const PORT = 3000;
         app.get("/", (req, res) => {
             res.sendFile(`${__dirname}//views//index.html`)
         })
-        app.use('/api', apiRoutes);
+        app.use('/arbitrage', arbitrageRoutes);
 
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
         });
 
     } catch (err) {
-        console.error('Error starting server:', err.message);
         process.exit(1);
     }
 })()

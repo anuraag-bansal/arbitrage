@@ -1,5 +1,13 @@
 const mongoose = require('mongoose');
 
+/**
+ * @typedef {Object} PairModel
+ * @property {string} name - The name of the pair.
+ * @property {string} nameOnBinance - The name of pair on Binance.
+ * @property {string} solanaAmmAddress - The address of the AMM on Solana.
+ * @property {boolean} isWebSocketInitialized - The value of the websocket(initialized or not)(default is false)
+ * @property {number} minProfit - The minimum profit to count as an arbitrage opportunity.
+ */
 const pairSchema = new mongoose.Schema({
     name: {type: String, unique: true, required: true},
     nameOnBinance: {type: String, required: true},
@@ -11,8 +19,4 @@ const pairSchema = new mongoose.Schema({
 module.exports = mongoose.connection
     .useDb("arbitrage")
     .model('pair', pairSchema)
-
-//amm address of wbtc/usdc = 4nfbdt7dexatvarzfr3wqalgjnogmjqe9vf2h6c1wxbr
-//amm address of weth/usdc = 4yrhms7ekgtbgjg77zj33tswrraqhscxdtuszqusughb
-//amm address of wsol/usdc = 58oQChx4yWmvKdwLLZzBi4ChoCc2fqCUWBkwMihLYQo2
 

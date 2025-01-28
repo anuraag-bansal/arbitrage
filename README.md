@@ -19,8 +19,8 @@ considering the fees from both exchanges.
 Before running the Crypto Arbitrage Monitor, ensure that you have the following installed:
 
 1. **Node.js**
-2. **MongoDB and MONGO_URL**
-3. **QUICKNODE SOLANA RPC URL**
+2. **MongoDB**
+3. **SOLANA RPC**
 
 # Setup
 
@@ -43,9 +43,22 @@ MONGO_URL=your_mongo_url
 QUICKNODE_URL=your_solana_rpc_url
 ```
 
+3. Start the add websocket service to create websockets for the trading pairs that are added dynamically.
+
+```bash
+cd services
+node websocket.add.service.js
+
+```
+This service will create websockets for the trading pairs by picking them from db
+
+Now you can add trading pairs ,
+For that first start the server and then use endpoint given below to add trading pairs
+
 3. Start the server:
 
 ```bash
+cd api
 node arbitrage.js
 ```
 
@@ -56,19 +69,19 @@ The Crypto Arbitrage Monitor exposes the following API endpoints:
 1. **GET /prices**: Returns the latest prices for BTC/USDC, ETH/USDC, and SOL/USDC pairs.
 
 ``````
-http://localhost:3000/api/price/:pair
+http://localhost:3000/arbitrage/price/:pair
 ``````
 
 2. **GET /opportunities**: Returns the list of arbitrage opportunities detected by the system.
 
 ````````
-http://localhost:3000/api/opportunities
+http://localhost:3000/arbitrage/opportunities
 ````````
 
 3. **POST /add/pair**: Adds a new trading pair to the monitoring system.
 
 ````````
-#### http://localhost:3000/api/add/pair
+#### http://localhost:3000/arbitrage/add/pair
 
 Body : {
 name:"btcusdc

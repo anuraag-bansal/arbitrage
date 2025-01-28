@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Nida is butterscotch</title>
+    <title>Arbitrage</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -62,7 +62,7 @@
 
 <div class="form-container">
     <h3>Add a trading pair</h3>
-    <form action="/api/add/pair" method="post">
+    <form action="/arbitrage/add/pair" method="post">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" />
 
@@ -83,8 +83,8 @@
     <h3>get arbitrage opportunities</h3>
     <ul>
         <li>
-            <a href="api/opportunities" target="_blank"
-            >api/opportunities</a
+            <a href="arbitrage/opportunities" target="_blank"
+            >arbitrage/opportunities</a
             >
         </li>
     </ul>
@@ -93,8 +93,8 @@
     <h3>get live price</h3>
     <ul>
         <li>
-            <a href="api/prices/:pair" target="_blank"
-            >api/prices/:pair</a
+            <a href="arbitrage/prices/:pair" target="_blank"
+            >arbitrage/prices/:pair</a
             >
         </li>
     </ul>

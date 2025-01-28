@@ -1,7 +1,7 @@
-const mongoLib = require('../lib/mongo.lib');
-const binancePriceModel = require('../models/binance.price.model');
-const arbitrageModel = require('../models/arbitrage.model');
-const pairModel = require('../models/pair.model');
+const mongoLib = require('../../lib/mongo.lib');
+const binancePriceModel = require('../../models/binance.price.model');
+const arbitrageModel = require('../../models/arbitrage.model');
+const pairModel = require('../../models/pair.model');
 
 async function getLivePrice(req, res) {
     try {
