@@ -40,7 +40,7 @@ npm install
 
 ```bash
 MONGO_URL=your_mongo_url
-QUICKNODE_URL=your_solana_rpc_url
+SOLANA_RPC_URL=your_solana_rpc_url
 ```
 
 3. Start the add websocket service to create websockets for the trading pairs that are added dynamically.

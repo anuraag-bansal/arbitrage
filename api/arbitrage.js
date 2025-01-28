@@ -5,6 +5,7 @@ const {connectToMongo} = require('../lib/mongo.lib');
 const {connectToCluster} = require('../lib/solana.lib');
 
 const arbitrageRoutes = require('./routes/arbitrage.route');
+const consoleLib = require("../lib/console.lib");
 
 const app = express();
 const PORT = 3000;
@@ -22,7 +23,7 @@ const PORT = 3000;
         app.use('/arbitrage', arbitrageRoutes);
 
         app.listen(PORT, () => {
-            console.log(`Server is running on port ${PORT}`);
+            consoleLib.log(`Server is running on port ${PORT}`);
         });
 
     } catch (err) {
