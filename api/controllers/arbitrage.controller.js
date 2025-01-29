@@ -77,7 +77,7 @@ async function addTradingPair(req, res) {
             name, nameOnBinance, solanaAmmAddress, minProfit
         } = req.body;
 
-        if (_.isEmpty(name) || _.isEmpty(nameOnBinance) || _.isEmpty(solanaAmmAddress) || _.isEmpty(minProfit)) {
+        if (_.isEmpty(name) || _.isEmpty(nameOnBinance) || _.isEmpty(solanaAmmAddress) || _.isNil(minProfit)) {
             return res.status(400).json({error: `name: ${name}, nameOnBinance: ${nameOnBinance}, solanaAmmAddress: ${solanaAmmAddress}, minProfit: ${minProfit} are required`});
         }
         if (!isValidSolanaAddress(solanaAmmAddress)) {

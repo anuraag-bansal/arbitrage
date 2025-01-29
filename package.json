@@ -4,18 +4,23 @@
   "description": "Real-time arbitrage monitoring system using MongoDB",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node 'api/arbitrage.js'",
+    "test": "mocha 'api/tests' --exit"
   },
   "dependencies": {
     "@raydium-io/raydium-sdk": "^1.3.1-beta.58",
     "@solana/web3.js": "^1.98.0",
     "axios": "^1.4.0",
+    "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
     "chalk": "^4.1.2",
     "dotenv": "^16.4.7",
     "express": "^4.18.2",
     "lodash": "^4.17.21",
+    "mocha": "^11.1.0",
     "mongoose": "^7.0.2",
     "prettier": "^3.4.2",
+    "sinon": "^19.0.2",
     "ws": "^8.13.0"
   }
 }
