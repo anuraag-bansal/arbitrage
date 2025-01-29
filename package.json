@@ -2,7 +2,7 @@
   "name": "crypto-arbitrage-monitor",
   "version": "1.0.0",
   "description": "Real-time arbitrage monitoring system using MongoDB",
-  "main": "index.js",
+  "main": "api/arbitrage.js",
   "scripts": {
     "start": "node 'api/arbitrage.js'",
     "test": "mocha 'api/tests' --exit"
