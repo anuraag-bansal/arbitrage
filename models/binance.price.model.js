@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 /**
  * @typedef {Object} BinancePriceModel
- * @property {number} price - The price of the pair.
- * @property {string} pair - The name of the pair.
+ * @property {number} price - The price of the pair on binance.
+ * @property {string} pair - The name of the pair on binance.
  * @property {Date} timestamp - The timestamp of the price.
  */
 const binancePriceSchema = new mongoose.Schema({

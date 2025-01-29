@@ -20,7 +20,7 @@ Before running the Crypto Arbitrage Monitor, ensure that you have the following 
 
 1. **Node.js**
 2. **MongoDB**
-3. **SOLANA RPC**
+3. **An active SOLANA RPC URL**
 
 # Setup
 
@@ -115,7 +115,7 @@ Future Extensions
 
 **1.Adding More Exchanges:**
 
-The system currently supports Binance and Solana DEX for arbitrage detection. To add support for more exchanges (e.g., Coinbase, Kraken), we could:
+The system currently supports Binance and Solana DEX Raydium for arbitrage detection. To add support for more exchanges (e.g., Coinbase, Kraken), we could:
 Integrate new APIs or WebSocket streams to fetch live prices from other exchanges.
 Add additional fee structures and trading rules specific to each exchange.
 Modify the arbitrage calculation logic to account for different exchange behaviors.

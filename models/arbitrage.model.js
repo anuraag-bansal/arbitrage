@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 /**
  * @typedef {Object} ArbitrageOpportunityModel
- * @property {string} pair - The name of the pair.
+ * @property {string} pair - The name of the pair(default eg:SOL/USDC).
  * @property {number} binancePrice - The price of the pair on Binance.
  * @property {number} raydiumDexPrice - The price of the pair on Raydium DEX.
  * @property {number} profit - The profit from the arbitrage opportunity.
