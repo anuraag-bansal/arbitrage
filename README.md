@@ -131,3 +131,19 @@ Push Notifications: For mobile apps or browser-based push notifications.
 
 We could try different arbitrage strategies to maximize profits
 
+## Testing
+
+The Crypto Arbitrage Monitor includes unit tests for the core components of the system. To run the tests, use the following command:
+1. Start the server
+
+```bash
+cd api
+node arbitrage.js
+```
+
+2. Run the following command:
+
+```bash
+npm test
+```
+
